@@ -1,0 +1,53 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: 0; color: #8d8d8d;}
+li{list-style: none;}
+
+body {
+    background-color: #f3f6f8;
+}
+
+header {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.lnb {
+    width: 1170px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: end;
+}
+
+.lnb li {
+    padding: 12px 12px;
+    position: relative;
+    /* border: 1px solid red; */
+    /* 이동시키되 부모 안에서만 놀게 집이라고 선언하는 명령어! 0,0 좌표는 부모의 0,0이 됨 */
+}
+
+.lnb li:nth-of-type(3) {
+    padding-right: 0px;
+}
+/* display flex 에서는 순서 개념 안 먹기때문에 라스트 차일드 안먹힘! 번호로 지정해야함 */
+
+.lnb li::after{
+        position: absolute;
+        transform: translateY(-50%);
+        right: 0;
+        top:50%;
+        /* 포지션은 움직여야 할 기준이 필요! 움직일 영역 기준 지정은 relative, 움직일 객체 설정은 absolute!
+        transform: translateY(-50%); 은 움직일 객체의 기준점을 Y를 기준으로 센터로 바꾸는 명령어 */
+                /* right: -1; 로 바꾸면 구분선이 정중앙에 생기게 됨! 양쪽 마진 똑같이 나눠가짐 */
+    content: "";
+    width: 1px;
+    height: 10px;
+    background-color: #cecece;
+    display: inline-block;
+    /* 비포 에프터는 인라인 중에서도 최하위라 너비 못 가짐! */
+
+}
+
+.lnb li:nth-of-type(3)::after {
+    display: none;
+}
