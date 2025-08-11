@@ -1,0 +1,58 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: #000;}
+li{list-style: none;}
+
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    border: 1px solid red;
+}
+
+
+section {
+    width: 400px;
+    height: 500px;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+
+section div {
+    float: left;
+    /* 냅다 다 띄워버리면 지들 알아서 정리되니까~
+    하지만 float은 오류가 많이 생기는 구시대적 방식임 */
+    width: 100px;
+    height: 100%;
+}
+
+section div::after{
+    /* display: block; */
+    content: "";
+    clear: both;
+    background-color: red;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+/* float을 띄우고 남는 바닥 공간을 유리로 매꾸는 명령어! =가상착지
+after와 ::before는 가상 요소 : 인라인 요소임
+지금은 블록으로 해놨기 때문에 content: "ㅇㄴㄴㅇㄹ"; 아랫줄에 뜸
+근데 display: block; 안쓰고 content: "ㅇㄴㄴㅇㄹ"; 쓰면 글 바로 뒤에 붙어 생김! 
+
+before였으면 글씨 앞에 ""가 생김!*/
+
+section div:nth-of-type(1) {
+    background-color: lightblue;
+}
+
+section div:nth-of-type(2) {
+    background-color: lightcoral;
+}
+
+section div:nth-of-type(3) {
+    background-color: lightgoldenrodyellow;
+}
+
+section div:nth-of-type(4) {
+    background-color: lightgreen;
+}

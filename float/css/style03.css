@@ -1,0 +1,29 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: #000;}
+li{list-style: none;}
+
+header {
+    width: 100%;
+    /* 웬만하면 100퍼, 높이는 잘 안 잡음 */
+    padding: 20px;
+    border: 1px solid red
+}
+
+nav {
+    width: 1200px;
+    margin: 0 auto;
+    background-color: beige;
+}
+
+nav li{
+    float: left;
+    /* 공중에 떴기 때문에 높이가 사라짐! > 백그라운드 색이 사라짐을 통해 알 수 있음 */
+    margin-right: 20px;
+}
+
+nav::after {
+    display: block;
+    content: "";
+    clear: both;
+    /*float이 들어간 부모 태그에다 ::after 명령어 입력해서 플롯을 클리어시킨다! 해제시킨다~ */
+}

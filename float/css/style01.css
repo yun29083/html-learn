@@ -1,0 +1,13 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: #000;}
+li{list-style: none;}
+
+div{
+    width: 500px;
+
+}
+
+div img {
+    float: left;
+    /* float은 공중에 뜬다. 모든 요소들은 0,0좌표(좌상단)부터 위치하려 하기때문에, 공중에 이미지를 띄웠으니 그 빈공간 채우러 달려감! 그러나 광합성은 해야하니 띄운 아래 공간으로 들어가진 않음! */
+}

@@ -1,0 +1,55 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: black;}
+li{list-style: none;}
+
+body {
+    background-color: #f3f6f8;
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    width: 1170px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+}
+
+ul li {
+    /* padding: 0 20px; */
+    border: 1px solid blue;
+}
+
+ul li a {
+    padding: 10px 20px;
+    a의 클릭 영역을 넓히기 위해!
+    이렇게하면 사이 간격이 다시 없어지니, a에도 마진이나 패딩 주고 li에도 마진이나 패딩 주는게 실무!
+    font-size: 25px;
+    border: 1px solid red;
+}
+
+/* .wrap {
+    width: 1170px;
+    background-color:  white;
+    border-radius: 25px;
+    box-shadow: 5px 5px 20px rgb(231, 231, 231);
+    margin: 100px auto;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+}
+
+.inner>li {
+    font-size: 25px;
+    font-weight: 500;
+    padding: 14px 15px;
+} */

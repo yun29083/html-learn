@@ -1,0 +1,81 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: black;}
+li{list-style: none;}
+
+ul {
+    background-color: beige;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    /* 공중에 띄운것도 인라인도 아닌 그저 정렬시키는 것! */
+    flex-direction: row;
+    /* 플렉스 방향! 기본=가로는 row, 컬럼은 세로방향! */
+    /* -reverse 시키면 기본 0,0 정렬에서 오른쪽 끝으로 붙어버림! */
+    flex-wrap: wrap;
+    /* 기본은 nowrap! 밑으로 내려올것인가 말것인가
+    width를 주더라도 flex가 우선이기 때문에 자기 너비 줄이면서라도 부모 너비에 들어가려함
+    wrap 쓰면 아래로 내려옴! 이것이 반응형의 기본이다~ */
+
+    /* justify-content: center; 
+    가운데로 모임*/
+    /* justify-content: space-around;
+    하나를 기준으로 마진을 동일하게 가져감 */
+    /* justify-content: space-between;
+    양 옆 요소는 끝에 무조건 붙임, 그 사이는 동일한 마진 값을 준다 = 부모 넓이만큼 다 가져가려함 */
+    /* justify-content: space-evenly; 모든 여백을 동일하게!*/
+    /* align-items: center;
+    큰 애를 기준으로 센터로 맞춤! 네비게이터에 로고랑 메뉴 넣는 느낌! */
+    
+    
+    /* 참고 사이트!! https://studiomeal.com/archives/197 */
+
+}
+
+.item {
+    width: 40px;
+    height: 40px;
+    /* margin: 20px; 
+    justify-content: center; 주고 사이 띄우고싶으면 저거 넣기 */
+}
+
+.item1 {
+
+    height: 100px;
+    background-color: lightblue;
+}
+
+.item2 {
+    background-color: lightcoral;
+}
+
+.item3 {
+    background-color: lightcyan;
+}
+
+.item4 {
+    background-color: lightgoldenrodyellow;
+}
+
+.item5 {
+    background-color: lightgray;
+}
+
+.item6 {
+    background-color: lightgreen;
+}
+
+.item7 {
+    background-color: lightpink;
+}
+
+.item8 {
+    background-color: lightsalmon;
+}
+
+.item9 {
+    background-color: lightseagreen;
+}
+
+.item10 {
+    background-color: lightskyblue;
+}

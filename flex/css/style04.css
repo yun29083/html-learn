@@ -1,0 +1,71 @@
+* {margin: 0; padding: 0;}
+a {text-decoration: none; color: black}
+li {list-style: none;}
+
+.wrap {
+    width: 600px;
+    border: 1px solid red;
+}
+
+.wrap>div{
+    /* .wrap div하면 랩 안에 있는 모오오든 div들이 호명됨!(손자에 손자들까지)
+    꺽쇠를 넣어서 .wrap>div 하면 부모 바로 직계! 손자들 빼고 바로 아래 있는 div들만 부를 수 있음! */
+    height: 100px;
+    border: 1px solid blue;
+}
+
+.top {
+    display: flex;
+}
+
+.top>div {
+    width: 50%;
+    height: 100%;
+    border: 1px solid red;
+    /* 블럭요소니까 밑으로 2개 소환됨 */
+}
+
+.top-right div{
+    border: 1px solid green;
+    height: 50%;
+}
+
+.mid {
+    display: flex;
+}
+
+.mid>div {
+    width: 50%;
+    height: 100%;
+    border: 1px solid purple;
+}
+
+.mid-left {
+    display: flex;
+}
+
+.mid-left div {
+    width: 50%;
+    height: 100%;
+    border: 1px solid green;
+}
+
+.bottom {
+    display: flex;
+}
+
+.bottom>div{
+    width: 50%;
+    height: 100%;
+    border: 1px solid blue;
+}
+
+.bottom-right {
+    display: flex;
+}
+
+.bottom-right div {
+    width: 50%;
+    height: 100%;
+    border: 1px solid green;
+}
