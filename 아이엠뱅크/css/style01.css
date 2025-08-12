@@ -1,0 +1,233 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+a{text-decoration: none; color: #000;}
+li{list-style: none;}
+
+body {
+    background-color: #f3f6f8;
+    font-family: "Noto Sans KR", sans-serif;
+
+}
+
+/* header 시작 */
+
+header {
+    width: 100%;
+    padding: 16px 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .inner {
+    width: 1170px;
+    /* border: 1px solid red; */
+
+}
+
+/* lnb 시작 */
+
+.lnb {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    padding-bottom: 20px;
+}
+
+.lnb li {
+    padding: 0 12px;
+    position: relative;
+        /* border: 1px solid red; */
+}
+
+.lnb li:nth-of-type(3) {
+    padding-right: 0;
+}
+
+.lnb li::after {
+
+    /* 가상요소 넣는 법 */
+    content: "";
+    /* ""안에 썼을 때 밀어넣는지 확인 */
+    width: 1px;
+    height: 10px;
+    background-color: #cecece;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.lnb li:nth-of-type(3)::after {
+    display: none;
+}
+
+.lnb li a {
+    font-size: 14px;
+    color: #8d8d8d;
+}
+
+/* lnb 끝 */
+
+/* nav 시작 */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_menu {
+    display: flex;
+    /* width를 하나씩 다 정해주면 반응형이 아닌 고정 웹이 만들어짐! */
+    align-items: center;
+}
+
+.nav_menu li {
+    padding: 0 10px;
+}
+
+.nav_menu li a {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px 10px;
+    /* 유저 편의를 위해 a링크 근처에 가면 여백도 선택 가능하도록 함 */
+
+}
+
+.right_info {
+    display: flex;
+    align-items: center;
+
+}
+
+form {
+    /* border: 1px solid red; */
+    position: relative;
+}
+
+form .srch_btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background-color: transparent;
+    /* transparent는 배경색 없애는 기능 */
+}
+
+form .srch_btn i {
+    font-size: 20px;
+}
+
+form input {
+    width: 214px;
+    height:44px;
+    padding: 0 45px 2px 20px;
+    border-radius: 100px;
+    font-size: 16px;
+}
+
+.right_info button {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.right_info button i {
+    font-size: 20px;
+}
+
+.right_info_btn {
+    margin-left: 20px;
+}
+
+/* nav 끝 */
+
+/* header 끝 */
+
+/* mainVisual 시작 */
+
+.mainVisual {
+    width: 1170px;
+    height: 377px;
+    background: url(../img/main_visual01.png) no-repeat right center;
+    /* 내부 스타일에선 상위폴더 못 올라감, 외부 스타일에서만 가능!
+    백그라운드 컬러보다 이미지가 윗 순서에 있어야함 */
+    
+    background-color: #fff;
+    margin: 20px auto;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.slideText {
+    position: absolute;
+    top: 50%;
+    /* border: 1px solid red; */
+    transform: translateY(-50%);
+    left: 81px;
+}
+
+.slideText span {
+    display: block;
+    padding: 5px;
+}
+
+.slideText span:nth-of-type(1) {
+    font-size: 30px;
+}
+.slideText span:nth-of-type(2) {
+    font-size: 54px;
+    font-weight: 500;
+}
+.slideText span:nth-of-type(3) {
+    font-size: 22px;
+    color: #5f626a;
+}
+
+.slideText button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    color: #006ddf;
+    font-size: 17px;
+}
+
+/* mainVisual 끝 */
+
+/* list 시작 */
+
+.list {
+    width: 1170px;
+    padding: 30px;
+    background-color: #fff;
+    margin: 20px auto;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+
+}
+
+.list ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.list ul li {
+    padding: 0 20px;
+}
+
+.list ul li a {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+/* list 끝 */
