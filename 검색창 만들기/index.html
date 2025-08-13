@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색창</title>
+    <style>
+        .search_box {
+            width: 300px;
+            /* 검색창은 너비 잡아두는게 좋음 */
+            /* border: 1px solid black; */
+            position: relative;
+        }
+
+        .search_txt {
+            border: 0;
+            padding: 10px 12px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: none;
+            /* 클릭했을 때 보더 안 생기게 아웃라인 없앰 */
+            border: 1px solid #8d8d8d;
+            border-radius: 100px;
+        }
+
+        .search_txt:focus {
+            /* focus > 클릭했을 때! */
+            border: 1px solid blue;
+            background-color: lightblue;
+            box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+
+        .radio_box input {
+            accent-color: red;
+        }
+
+        .check_box {
+            appearance: none;
+            /* 기본 설정 다 사라지고 하나하나 다 만들어야하는 명령어! */
+            border: 1px solid lightcoral;
+            border-radius: 118px;
+            padding: 5px;
+
+            /* accent-color: red; */
+            /* 만들어져있는 체크박스 설정에 체크시 색만 바꾸고 싶을 때 사용 */
+            width: 50px;
+            height: 50px;
+        }
+
+        .check_box:checked {
+            background-color: red;
+            background-clip: content-box;
+            /* 그냥 외워! 패딩만큼 공간이 들어가짐 */
+        }
+    </style>
+</head>
+
+<body>
+    <form class="search_box" action="">
+        <!-- 입력 가능한 필드를 만드는 것. div와 동일한 역할! 필수요소는 아니라서 그냥 div로 만들어도 됨~ -->
+        <input class="search_txt" type="text" placeholder="검색어 입력">
+        <!-- placeholder="" > 미리 써놓는 내용 -->
+        <!-- class도 지을 수 있음 -->
+        <!-- <input type="number"> 핀넘버! 숫자만 쓸 땐 요렇게~ -->
+        <button>검색</button>
+    </form>
+
+    <input class="check_box" type="checkbox">
+    <!-- 다중선택, 중복선택 가능한 요소들 -->
+    <!-- <input type="radio"> -->
+    <form class="radio_box" action="">
+        <p>당신의 나이대를 골라주세요.</p>
+        <input type="radio" name="ages" id=""> 10대 <br>
+        <input type="radio" name="ages" id=""> 20대 <br>
+        <input type="radio" name="ages" id=""> 30대 <br>
+        <input type="radio" name="ages" id=""> 40대 <br>
+        <input type="submit">
+    </form>
+    <!-- form에서 action=""은 백엔드에서 기능 넣는 역할. 우리가 하는 프론트 디자인과는 큰 연관 없으니 신경쓰지 X -->
+
+    <form oninput="x.value=parseInt(a.value)" action="">
+        <p>당신의 나이대를 골라주세요.</p>
+        <input type="range" id="a" name="ages" min="10" max="60" step="10">
+        <output name="x" for="a"></output>
+    </form>
+    <!-- range는 범위를 정해줘야 함  -->
+
+</body>
+
+</html>
+
+<!-- <input> 태그의 type 속성
+ http://www.tcpschool.com/html-tag-attrs/input-type#google_vignette -->
