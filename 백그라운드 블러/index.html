@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+
+        img {
+            /* filter: blur(5px); */
+            /* 박스 자체를 블러 */
+            -webkit-filter: blur(5px);
+            /* 호환성을 높여주는 명령어! 브라우저상에서 블러 처리하게 해줌
+            그냥 필터랑 웹키트 필터 둘 중 하나를 쓰면 되는데 웹키트가 더 호환성 좋으니 웹키트로 쓰기~ */
+        }
+
+        body {
+            height: 200vh;
+        }
+
+        header {
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            background-color: rgba(255,255,255,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .mainVisual {
+            background: url(./img/메인배너\ full_HD.png) no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="wrap">
+        <img src="./img/메인배너 full_HD.png" alt="">
+    </div> -->
+
+    <header>
+        HEADER
+    </header>
+    <div class="mainVisual"></div>
+</body>
+</html>
