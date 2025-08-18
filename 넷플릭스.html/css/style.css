@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+}
+
+section{
+    height: 100vh;
+    background: url(https://assets.nflxext.com/ffe/siteui/vlv3/258d0f77-2241-4282-b613-8354a7675d1a/web/KR-ko-20250721-TRIFECTA-perspective_e27a5022-ddc3-4545-a5eb-1c788c8be067_large.jpg);
+}
+
+section::before{
+    /* before > 색션 위에 그라데이션 준다는 뜻 */
+    content:'';
+    /* 컨텐츠가 아무것도 없는 비어있는 공간을 만들건데 */
+    background: linear-gradient(to right,black,transparent);
+    /* 배경에 라인 그라디언트를 준다(오른쪽으로 가면서, 시작 가장 진한 색상은 블랙, 끝은 투명에서부터) */
+    
+    position: absolute;
+    left: 0;
+    /* 위치를 설정해줘야함 */
+    /* 사이즈가 없으니 나타나지지 않음 */
+    height: 100%;
+    width: 50%;
+    /* 그라디언트 너비도 더 넓게 하려면 80% 이런식으로 조절 가능 */
+}
+
+h1 {
+    color: white;
+    font-size: 6em;
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    font-family: sans-serif;
+}
