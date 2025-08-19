@@ -33,7 +33,13 @@ header .gnb {
     width: 67px;
 }
 
-nav ul{
+.main_logo img:hover {
+    width: 67px;
+    /* background-image: url(../img/동세극장\ 로고\ 컬러.svg);
+    z-index: 300px; */
+}
+
+nav .nav_menu{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,9 +49,10 @@ nav ul{
     box-sizing: content-box;
     gap: 20px;
     /* 부모에 display: flex; / gap: 16px; 넣으면 똑같은 간격으로 벌어짐 */
+    /* border: 1px solid red; */
 }
 
-nav ul a{
+nav .nav_menu a{
     padding: 14px;
     font-size: 18px;
     font-weight: 600;
@@ -56,23 +63,56 @@ nav ul a{
 
 }
 
-nav ul li{
+nav .nav_menu .main_menu{
     transition: 0.3s;
     border-radius: 32px;
+    /* border: 1px solid red; */
+    position: relative;
+
 }
 
-nav ul li:hover{
+nav .nav_menu .main_menu:hover{
     background-color: #0768EA;
 }
 
-nav ul li a:hover{
+nav .nav_menu .main_menu>a:hover{
     color: #fff;
+}
+
+.sub_menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #F3F3F3;
+    border-radius: 20px;
+    width: max-content;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    padding: 10px;
+    box-sizing: content-box;
+}
+
+.main_menu:hover .sub_menu {
+    opacity: 100%;
+    visibility: visible;
+}
+
+.sub_menu a {
+    color: #9e9e9e;
+        transition: all 0.3s;
+}
+
+.sub_menu a:hover {
+    color: #0768EA;
+    transform: scale(1.1);
 }
 
 .right_info {
     display: flex;
     align-items: center;
-
     gap: 34px;
     
 }

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{margin: 0; padding: 0;}
-        li{list-style: none;}
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-        ul{
+        li {
+            list-style: none;
+        }
+
+        ul {
             width: 500px;
             height: 500px;
             margin: 100px auto;
@@ -39,14 +46,39 @@
         li:nth-of-type(2) {
             right: 0;
         }
+
+        li:nth-of-type(5) {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        li:nth-of-type(6) {
+            z-index: 999;
+            background-color: lightcoral;
+            height: 100%;
+            left: -100px;
+        }
+
+        li:nth-of-type(7) {
+            z-index: 999;
+            background-color: lightcoral;
+            height: 100%;
+            right: -100px;
+        }
     </style>
 </head>
+
 <body>
     <ul>
         <li>box1</li>
         <li>box2</li>
         <li>box3</li>
         <li>box4</li>
+        <li>box5</li>
+        <li>box6</li>
+        <li>box7</li>
     </ul>
 </body>
+
 </html>

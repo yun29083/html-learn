@@ -1,0 +1,59 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: black;}
+li{list-style: none;}
+
+header {
+    background: linear-gradient(rgba(0,0,0,0.7)0%,rgba(0,0,0,0)100%);
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    width: 1200px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_menu {
+    margin: 0 20px;
+    padding: 20px 0;
+        border: 1px solid blue;
+        position: relative;
+}
+
+.nav_menu:hover .sub_menu {
+    /* display: block; */
+    opacity: 100%;
+    visibility: visible;
+}
+
+.main_menu {
+    text-align: center;
+    display: block;
+    /* 인라인이라 가운데 정렬 안 되니까 블럭처리 */
+}
+
+.sub_menu {
+    background-color: #000;
+    border-radius: 12px;
+    position: absolute;
+    top: 100%;
+    /* 위로부터 다 내려오는 것! 100%로 설정 */
+    left: 50%;
+    transform: translateX(-50%);
+    /* display: none; */
+    opacity: 0;
+    visibility: hidden;
+    /* display: none;은 존재 자체를 없앰 / visibility: hidden;는 동작은 하는데 잠깐 안 보이게 하는 것 */
+        transition: all 0.3s;
+}
+
+.sub_menu li {
+    padding: 20px;
+    text-align: center;
+}
+
+.sub_menu li a {
+    color: #fff;
+}

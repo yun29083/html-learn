@@ -1,0 +1,64 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: black;}
+li{list-style: none;}
+
+header{
+    /* background: linear-gradient(black, transparent); */
+        background: linear-gradient(rgba(0,0,0,0.7)0%,rgba(0,0,0,0)100%);
+    display: flex;
+    justify-content: center;
+}
+
+.nav {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid blue;
+}
+
+.nav_menu {
+    margin: 0 20px;
+    padding: 20px 0;
+    position: relative;
+}
+
+.nav_menu:hover .sub_menu {
+    opacity: 100%;
+    visibility: visible;
+}
+
+.main_menu {
+    color: #fff;
+    /* margin: 8px 20px; */
+    text-align: center;
+    display: block;
+    border: 1px solid red;
+        /* box-sizing: content-box; */
+}
+
+.sub_menu {
+    width: max-content;
+    /* 영어로 쓰면 자동으로 글씨가 박스 안 잘리게 조절되지만 한글은 잘리게됨.. 그러니 width: max-content; 써야 한글일때 잡힘 */
+    background-color: #000;
+    border-radius: 12px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    /* text-align: center; */
+    padding: 20px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.sub_menu li {
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.sub_menu li a{
+    color: #fff;
+    /* display: block; */
+}
