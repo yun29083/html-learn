@@ -75,9 +75,14 @@ nav .nav_menu .main_menu:hover{
     background-color: #0768EA;
 }
 
-nav .nav_menu .main_menu>a:hover{
+nav .nav_menu .main_menu:hover>a{
     color: #fff;
 }
+/* 메인메뉴에 호버하면 바로 밑 a가 바뀐다 */
+
+/* nav .nav_menu .main_menu>a:hover{
+    color: #fff;
+} */
 
 .sub_menu {
     position: absolute;
