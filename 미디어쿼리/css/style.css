@@ -1,0 +1,50 @@
+body{
+    color: blue;
+}
+
+/* @media (max-width : 600px){
+    .cellphone{
+        color: red;
+    }
+}
+괄호 안에는 조건, 어느 포인트에서 바뀔지 정하는 기준을 breakpoints라 부름
+
+@media (min-width:600px) and (max-width : 992px){
+    .tablet{
+        color: red;
+    }
+}
+
+@media (min-width : 992px){
+    .desktop{
+        color: red;
+    }
+} */
+
+@media (orientation: landscape) {
+    body{
+        color: green;
+        display: flex;
+        /* 가로가 길면 오른쪽으로 주르륵 나열되다가 세로가 길어지면 아래로 나열됨! */
+    }
+    .desktop{
+        color: blue;
+    }
+}
+
+@media  screen (orientation: portrait) {
+    body{
+        color: orange;
+    }
+}
+/* 가로가 길 땐 초록, 세로가 길 땐 오렌지가 나오도록 설정도 가능! */
+/* 스타일을 screen으로 지정하면 저 환경일 때 저 스타일로 보이지만 print 시에는 적용이 안됨!
+스타일 지정 안 했을 시 기본은 all > 프린트와 스크린 모두 적용되는 상태인것 */
+/* 근데 왜 screen 안된다고 뜨지??????? */
+
+@media print {
+    body {
+        color:purple;
+    }
+}
+/* 인쇄용버전의 스타일을 지정해둠 */
