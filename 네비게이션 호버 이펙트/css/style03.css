@@ -1,0 +1,67 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: #000;}
+li{list-style: none;}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn a {
+    display: block;
+    /* 넓이 줘야하는데 인라인요소니까! */
+    width: 300px;
+    height: 40px;
+    /* border: 1px solid red; */
+    position: relative;
+
+    overflow: hidden;
+    /* 부모를 벗어나면 몸을 숨겨라! */
+
+    padding: 0 10px;
+}
+
+.btn a::before,
+.btn a::after {
+    
+    position: absolute;
+    width: inherit;
+    /* width: 100%;와 똑같은 뜻으로, 부모의 값을 100% 상속받는다는 명령어
+    >> width:100%;는 버그가 날 수 있으나 inherit은 확실한 값이기에 앞으로는 요거로 쓰기~ */
+    height: inherit;
+
+    text-align: center;
+    line-height: 40px;
+    
+
+    color: white;
+
+    transition: all 0.3s ease;
+}
+
+.btn a::before {
+    content: attr(data-text);
+    background-color: crimson;
+    top:0;
+}
+
+.btn a::after {
+    content: attr(data-text2);
+    background-color: royalblue;
+    top: 100%;
+}
+
+.btn a:hover::before {
+    top :-100%;
+}
+
+.btn a:hover::after {
+    top: 0;
+}

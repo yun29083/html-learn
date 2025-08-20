@@ -1,0 +1,62 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none; color: #000;}
+li{list-style: none;}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn a {
+    display: block;
+    /* 넓이 줘야하는데 인라인요소니까! */
+    width: 300px;
+    height: 40px;
+    /* border: 1px solid red; */
+    position: relative;
+
+    overflow: hidden;
+    /* 부모를 벗어나면 몸을 숨겨라! */
+}
+
+.btn a::before,
+.btn a::after {
+    content: attr(data-text);
+    /* before, after는 항상 컨텐츠 자동으로 써야함! 습관처럼~
+    컨텐츠에 ""안에 쓰는 것이 아닌 데이터를 불러와 기인하다, 끼워넣는 느낌
+    기인하다 : attribute */
+
+    position: absolute;
+    width: inherit;
+    /* width: 100%;와 똑같은 뜻으로, 부모의 값을 100% 상속받는다는 명령어
+    >> width:100%;는 버그가 날 수 있으나 inherit은 확실한 값이기에 요걸 쓰도록! */
+    height: inherit;
+    text-align: center;
+    line-height: 2.5em;
+    /* em은 반응형 만들 때 쓰임, 나중에 더 배울 예정, 이렇게 하면 글씨가 상하 너비 동일하게 중앙정렬! 아무 숫자 넣어서 맞춘거긴함 */
+    /* line-height: 40px; 박스 높이만큼 px로 주면 됨 */
+
+    color: white;
+
+    transition: all 0.3s ease;
+}
+
+.btn a::before {
+    background-color: crimson;
+    top:0;
+}
+
+.btn a::after {
+    background-color: royalblue;
+    top: 100%;
+}
+
+.btn a:hover::before {
+    top :-100%;
+}
+
+.btn a:hover::after {
+    top: 0;
+}
