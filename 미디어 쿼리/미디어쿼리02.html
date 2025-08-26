@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        ul {
+            width: 1200px;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        li {
+            width: calc(25% - 10px);
+            /* 너비 잡되 마진까지 남겨야하니까! */
+            background-color: white;
+            border: 1px solid red;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        @media all and (max-width:768px) {
+            ul {
+                width: 100%;
+                flex-wrap: wrap;
+                /* 줄 바꾸는 명령어! 안들어가지면 내려와라~ */
+            }
+
+            li {
+                width: calc(50% - 10px);
+            }
+        }
+
+        @media all and (max-width:480px){
+            li {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>box1</li>
+        <li>box2</li>
+        <li>box3</li>
+        <li>box4</li>
+    </ul>
+</body>
+
+</html>
