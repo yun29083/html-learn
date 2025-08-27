@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* box-sizing: border-box;는 패딩으로 인해 정해진 너비 값이 늘어나지 않게 만드는 역할 */
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+/* navbar 시작 */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: navy;
+    padding: 8px 16px;
+}
+
+/* navbar_logo 시작 */
+
+.navbar_logo {
+    font-size: 24px;
+}
+
+.navbar_logo i {
+    color: orange;
+}
+
+/* navbar_logo 끝 */
+/* navbar_menu 시작 */
+
+.navbar_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar_menu li {
+    padding: 8px 12px;
+}
+
+.navbar_menu li:hover {
+    background-color: orange;
+    border-radius: 8px;
+}
+
+/* navbar_menu 끝 */
+/* navbar_sns 시작 */
+
+.navbar_sns {
+    color: #fff;
+    display: flex;
+}
+
+.navbar_sns li {
+    padding: 8px 12px;
+}
+
+/* navbar_toggleBtn */
+
+.navbar_toggleBtn {
+    position: absolute;
+    /* 부모는 잡지않는다, 이유 있음! : */
+    right: 16px;
+    font-size: 24px;
+    display: none;
+}
+
+/* navbar 끝 */
+
+@media all and (max-width:768px) {
+    .navbar {
+        flex-direction: column;
+        /* display: flex;의 기본 방향(dirextion)이 가로정렬임 =row
+    세로 정렬은 column */
+    }
+
+    .navbar_menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        display: none;
+    }
+
+    .navbar_menu li {
+        width: 100%;
+        text-align: center;
+        /* width: ;가 잡혀있을 땐 중앙정렬은 text-align: center;로 해버리면 간단! */
+    }
+
+    .navbar_sns {
+        display: none;
+    }
+
+    .navbar_toggleBtn {
+        display: block;
+    }
+
+    .navbar_menu.active,
+    .navbar_sns.active{
+        display: flex;
+    }
+    /* 토글에 인해서 가상의 클래스가 붙으면 저렇게 출력되라는 뜻 */
+
+    /* .navbar_menu.on
+    .navbar_menu.active (주로active를 많이 씀)
+    위 클래스에 가상의 클래스인 .on이나 active가 붙는다면 이렇게 하여라~
+    가상의 클래스는 .@@를 띄어쓰지않고 붙여써야함  */
+}

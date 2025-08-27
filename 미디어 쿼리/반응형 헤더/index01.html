@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style01.css">
+    <!-- 외부 커스텀 스타일 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- 부트스트랩 아이콘 -->
+     
+    <script src="./js/main.js" defer></script>
+    <!-- 외부 커스텀 자바스크립트 -->
+     <!-- 위에 예쁘게 모아놓고싶은데 자바스크립트는 마지막에 읽혀야하니
+     <script src="./js/main.js"></script>만 썼을 땐 실행이 안됨.
+     위에 써두고 마지막에 실행시켜라~ 하는 명령어가 defer! -->
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <i class="bi bi-wechat"></i>
+            <a href="#">WooriCoding</a>
+        </div>
+
+        <ul class="navbar_menu" id="navbarMenu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Gallery</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">FAQ</a></li>
+            <li><a href="">Bookings</a></li>
+        </ul>
+
+        <ul class="navbar_sns" id="navbarSns">
+            <li><i class="bi bi-twitter"></i></li>
+            <li><i class="bi bi-facebook"></i></li>
+        </ul>
+
+        <button class="navbar_toggleBtn" id="toggleBtn">
+            <!-- toggleBtn = 끄고 켜는게 버튼 하나로 제어되는것을 토글이라 부름 -->
+            <i class="bi bi-list"></i>
+        </button>
+    </nav>
+
+    <!-- id 넣은 이유는 css랑 js랑 구분하기 위해! 안해도 되지만 첫 시간이니까 이런 식으로 쓸 수 있음을 보여줌 -->
+
+    <!-- 자바스크립트는 html다 끝나고 body위에 작성함 -->
+     <!-- <script></script> 안에 있으면 내부 스크립트지만 보기 안좋으니 밖으로 빼서 구분 -->
+      <!-- 브라우저에선 html, css를 먼저 실행 / 스크립트는 가장 마지막에 선언함! -->
+
+    <!-- <script src="./js/main.js"></script> -->
+</body>
+</html>
