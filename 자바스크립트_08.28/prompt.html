@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>어서오세요</h1>
+
+    <script>
+        const name = prompt('이름을 입력하세요');
+        // name이라는 변수가 =변할 수 있는 상황  입력창인 prompt를 띄움('창에 안내 멘트로 출력될 내용')
+        console.log(name);
+        // 콘솔 창에 입력한 내용을 로그로 남김
+        document.write('<b><big>' + name + '</big></b>' + '님 환영합니다');
+        // document.write는 콘솔창 아닌 브라우저 창에 띄움
+    </script>
+</body>
+</html>

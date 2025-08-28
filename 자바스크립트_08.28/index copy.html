@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin: 0; padding: 0;}
+        a{text-decoration: none; color: #000;}
+        li{list-style: none;}
+
+        .wrap {
+            border: 1px solid red;
+            width: max-content;
+        }
+
+        .main {
+
+            text-align: center;
+        }
+
+        .main>a {
+            padding: 20px 40px;
+            background-color: lightblue;
+            display: block;
+        }
+
+        .sub {
+            background-color: white;
+            display: none;
+        }
+
+        .sub>li {
+            padding: 12px 0;
+            cursor: pointer;
+        }
+
+        .sub>li:hover{
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="wrap">
+        <li class="main">
+            <a href="">메뉴1</a>
+            <ul class="sub">
+                <li>서브</li>
+                <li>서브</li>
+                <li>서브</li>
+                <li>서브</li>
+                <li>서브</li>
+            </ul>
+        </li>
+    
+    </ul>
+
+    <script>
+        const mainBtn = document.querySelector('.main');
+        // querySelector('.main') 쿼리 셀렉터는 태그 불러오는 녀석이지만 . 붙이면 클래스로 가져올 수 있음!
+        // 하나하나 불러올 명령어 정하기보단 이렇게 하는게 일관성 있고 편
+        // .main이 3개인데 그냥 쿼리셀렉터로 가져오면 1개만 가져와짐
+        // 다 가져오고싶으면 All을 뒤에 불여주면 됨.
+        // 그럼 .main 순서대로 0,1,2 로 순번이 부여됨 (컴터는 첫번째가 1이 아닌 0부터 시작)
+
+        // .sub에 display:none 잠깐 주석처리 해두고
+        const aLength = document.querySelector('.sub>li');
+        const subBtn = document.querySelector('.sub')
+
+    console.log(mainBtn);
+    console.log(aLength);
+    // length는 선택자의 몇 개인지 개수다
+    
+    mainBtn.addEventListener('mouseover',show);
+        // 이벤트에서 마우스 오버하면 함수를 불러와짐
+    mainBtn.addEventListener('mouseleave',hide);
+    
+    function show(){
+        subBtn.style.display = 'block';
+        // subBtn을 호출, css를 쓸건데 display를 할거다
+    }
+    function hide(){
+         subBtn.style.display = 'none';
+    }
+
+    </script>
+</body>
+
+</html>

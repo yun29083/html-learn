@@ -27,7 +27,7 @@ function alertted() {
 // 우리는 가장 최신버전만 알면 됨~
 
 
-// const toggleBtn = document.getElementById('toggleBtn');
+const toggleBtn = document.getElementById('toggleBtn');
 // toggleBtn 이라는 const(변수)를 선언, 변수니까 =부등호 들어가는 것
 // document : 문서
 // .getElementById : id로 가져오겠다는 뜻
