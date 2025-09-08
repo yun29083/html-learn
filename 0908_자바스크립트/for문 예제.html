@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .nav {
+            border: 1px solid black;
+            width: max-content;
+        }
+
+        /* .menus {} */
+
+        .menus>a {
+            background-color: royalblue;
+            color: #fff;
+            padding: 12px 24px;
+            /* 이렇게 하면 아래 서브가 넘어옴 > a는 인라인이기때문에 */
+            display: block;
+            
+        }
+
+        .submenu {
+            /* height: 0; */
+            overflow: hidden;
+            /* 부모를 벗어나면 보이지 말아라 */
+            transition: all 0.3s ease-in;
+        }
+
+        .submenu>li {
+            padding: 12px 24px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .submenu>li:hover {
+            background-color: lemonchiffon;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li class="menus">
+            <a href="#">메뉴</a>
+            <ul class="submenu">
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+            </ul>
+        </li>
+
+        <li class="menus">
+            <a href="#">메뉴</a>
+            <ul class="submenu">
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+            </ul>
+        </li>
+
+        <li class="menus">
+            <a href="#">메뉴</a>
+            <ul class="submenu">
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        const mainBtn = document.querySelectorAll('.menus>a');
+        const subBtn = document.querySelectorAll('.submenu');
+
+        // console.log(mainBtn);
+        // console.log(subBtn);
+
+        for (let i = 0; i < mainBtn.length; i++) {
+            const subBtnHeight = subBtn[i].clientHeight;
+            subBtn[i].style.height = '0px';
+            // 높이가 0이 되기 전 함수의 높이값을 구해왔고 clientHeight 그 후에 '0px'지정해준거니 명령어 작동함~
+
+            console.log(subBtnHeight);
+            mainBtn[i].addEventListener('click', () => {
+                console.log(i);
+                subBtn[i].style.height = subBtnHeight+'px';
+
+                // subBtn[i].style.height = "192px";
+                // 얘는 서브메뉴 길이 다 똑같을 땐 괜찮지만 각각 들어간 개수가 달라지면 적용이 안됨
+            });
+        }
+        // 높이값을 받아오는 방법 offsetHeight : https://abcdqbbq.tistory.com/86
+    </script>
+</body>
+
+</html>

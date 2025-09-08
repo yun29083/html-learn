@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root {
+            --color-key: #0768EA;
+            --color-transparent: rgba(7,104,234,0.3)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .wrap {
+
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            /* border: 1px solid red; */
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 200px;
+        }
+
+        header.active {
+            background-color:var(--color-transparent);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            backdrop-filter:blur(10px);
+        }
+
+        nav {
+            border: 1px solid blue;
+        }
+        .nav_menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav_menu li {
+            padding: 12px 24px;
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top_btn {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+        }
+        .top_btn a {
+            display: block;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="logo">
+                <a href="#home">LOGO</a>
+            </div>
+            <nav>
+                <ul class="nav_menu">
+                    <li><a href="#home">home</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#skill">skill</a></li>
+                    <li><a href="#work">work</a></li>
+                    <li><a href="#contact">contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+
+    <main>
+        <section id="home" style="background-color: lightblue;">home</section>
+        <section id="about" style="background-color: lightcoral;">about</section>
+        <section id="skill" style="background-color: lightgoldenrodyellow;">skill</section>
+        <section id="work" style="background-color: lightgreen;">work</section>
+        <section id="contact" style="background-color: lightpink;">contact</section>
+    </main>
+
+    <button class="top_btn"><a href="#home">Top</a></button>
+
+    <script>
+        const header = document.querySelector('header');
+        const headerHeight = header.offsetHeight;
+        console.log(headerHeight);
+
+        document.addEventListener('scroll', () => {
+            if (window.scrollY > headerHeight) {
+                header.classList.add('active')
+            } else {
+                header.classList.remove('active')
+            }
+        })
+
+    </script>
+</body>
+
+</html>

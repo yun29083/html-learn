@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .ani_btn {
+            padding: 20px;
+        }
+
+        .box {
+            background-color: #000;
+            width: max-content;
+            color: #fff;
+            padding: 20px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+
+        }
+
+        .box.active {
+            animation: ani 3s ease-in infinite;
+        }
+
+        @keyframes rotate {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+        }
+        
+        @keyframes ani {
+            0% {
+                left: 0;
+            }
+
+            50% {
+                left: 50%;
+            }
+
+            100% {
+                left: 0;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <button class="ani_btn">Go</button>
+    <div class="box">box</div>
+
+    <script>
+        const aniBtn = document.querySelector('.ani_btn');
+        // 태그 가져올 수 있으나 보통은 그러지않으니 클래스 만들어주는게 좋음
+        const box= document.querySelector('.box');
+
+        // console.log(aniBtn);
+        // // 콘솔창의 목적은 에러가 뜨는지 안뜨는지 / 잘 실행되는지 확인하기 위함
+        // // 변수는 괄호 안에 ('') 없이 그냥 괄호()
+        // console.log(box);
+        // 콘솔로 확인해서 잘 움직이면 없애버려도 됨
+
+        // aniBtn.addEventListener('click',animation);
+
+        // function animation(){
+        //     // function을 안 써도 작동은 되나 요게 고전적인 방식
+        //     box.classList.toggle('active');
+        // }
+
+
+
+        aniBtn.addEventListener('click',()=>{
+            box.classList.toggle('active');
+        });
+        // 클릭을 하면 () 어떤 행위가 일어나는데 그 행위는 => {어떤 함수를 불러온다}
+        // 요게 요즘 쓰는 방법으로, 함수를 따로 부를 필요 없이 바로 만들 수 있음!!
+
+    </script>
+</body>
+
+</html>

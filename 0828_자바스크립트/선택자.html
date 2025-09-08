@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <p>태그선택자</p>
+    <div></div>
+    <div class="box"></div>
+
+    <script>
+        const h1 = document.querySelector('p');
+        // 이름 선언하고 = 도큐먼트의 요소를 선택('p태그를 선택함')
+        // querySelector는 태그 자체를 가져옴
+        const divBox = document.getElementsByClassName('box');
+        // 이미 클래스에서 가져온다고 지정해놨으니 . 써서 가져올 필요 없음
+        // getElementsByClassName는 클래스 이름을 가져옴
+        console.log(h1);
+
+        h1.style.color = 'blue';
+        h1.style.fontSize = '30px';
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            background-color: #000;
+            width: max-content;
+            color: #fff;
+            padding: 20px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+
+            animation-name: ani;
+            /* 만들어준 애니메이션의 이름 */
+            animation-duration: 3s;
+            /* 3초동안 움직여라~ */
+            /* 위 두 개는 먼저 써두고 그 뒤 추가해가면 됨 */
+
+            animation-delay: 1s;
+            /* 1초 시간차 주겠다! */
+
+            animation-iteration-count: infinite;
+            /* 반복 횟수 infinite는 무한반복 */
+        }
+
+        @keyframes rotate {
+            /* keyframes 은 초 당 움직임을 뜻함, 그 뒤 rotate는 우리가 애니메이션의 이름을 정한 것
+        fps 는 프레임 속도로 1초 당 들어가는 컷의 수를 말함 */
+        0%{
+            /* 움직임의 시작부분은 0 */
+            transform: rotate(0deg);
+            /* 변형한다 : 회전(0도(각도)) */
+        }
+        100%{
+            /* 움직임의 마지막 부분은 100 */
+            transform: rotate(360deg);
+        }
+        }
+        /* 애니메이션을 만들어주었으니 얘를 div에 적용시켜야함 */
+        
+        @keyframes ani {
+            0% {
+                left: 50%;
+            }
+
+            50% {
+                left: 0;
+            }
+
+            100% {
+                left: 50%;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div>box</div>
+</body>
+
+</html>

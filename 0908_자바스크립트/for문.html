@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wrap {
+            display: flex;
+            border: 1px solid black;
+        }
+
+        .wrap li {
+            padding: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="wrap">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴5</li>
+    </ul>
+
+    <script>
+        const menus = document.querySelectorAll('.wrap li');
+        // querySelectorAll는 가져오긴 가져오는데 개수로 가져오고 개별로 가져오진 못 함
+        // 그래서 개별 설정이 안됨
+        // 순번으로 가져와서 개별로 부여
+
+        console.log(menus);
+
+        // for (let i = 0; i < 5; i++) {
+            
+        //     // console.log(i);
+        //     menus[i].addEventListener('mouseover', () => {
+        //         console.log(i);
+        //         menus[i].style.color = 'red'
+        //     });
+        // }
+        // 변수 쓰는 것에 차이는 없으나 괄호 안에는 보통 let을 씀
+        //menus[0].style.color = 'red'
+        // i라는 변수를 let 선언, i는 0; i는 5보다 작은데; i에 계속 1씩 더하라는 뜻++ ++는 증가 연산자
+
+
+        for (let i = 0; i < menus.length; i++) {
+            // 매번 변할 때바다 i<5 의 숫자 매번 바꾸기 힘드니 menus.length보다 작다 해두면 됨!
+            // ㅣlength는 리스트의 개수를 나타내니~
+            // console.log(i);
+            menus[i].addEventListener('mouseover', () => {
+                console.log(i);
+                menus[i].style.color = 'red'
+            });
+        }
+    </script>
+</body>
+
+</html>

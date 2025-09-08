@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .nav {
+            border: 1px solid black;
+            width: max-content;
+        }
+
+        /* .menus{
+
+        } */
+
+        .menus>a {
+            background-color: royalblue;
+            color: #fff;
+            padding: 12px 24px;
+            display: block;
+        }
+
+        .submenu {
+            height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-in;
+        }
+
+        .submenu>li {
+            padding: 12px 24px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .submenu>li:hover {
+            background-color: lemonchiffon;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li class="menus">
+            <a href="#">메뉴</a>
+            <ul class="submenu">
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+            </ul>
+        </li>
+
+        <li class="menus">
+            <a href="#">메뉴</a>
+            <ul class="submenu">
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+            </ul>
+        </li>
+
+        <li class="menus">
+            <a href="#">메뉴</a>
+            <ul class="submenu">
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+                <li><a href="#">서브</a></li>
+            </ul>
+        </li>
+    </ul>
+
+     <!-- <script>
+        const mainBtn = document.querySelectorAll('.menus>a');
+        const subBtn = document.querySelectorAll('.submenu');
+
+        // 초기상태 : 모두 접기 = height = 0px
+
+        for(let i = 0; i < subBtn.length; i++){
+            subBtn[i].style.height = '0px'
+        }
+
+         for(let i = 0; i < subBtn.length; i++){
+            mainBtn[i].addEventListener('click',()=>{
+                const currentSub = subBtn[i];
+                const isOpen = currentSub.style.height !== '0px';
+
+                //모든 메뉴 닫기
+
+                for(let j =0; j<subBtn.length; j++){
+                    subBtn[j].style.height = '0px';
+                }
+
+                // 현재 메뉴가 닫혀 있었으면 열기
+                if(!isOpen) {
+                    currentSub.style.height = currentSub.scrollHeight + 'px';
+                }
+            });
+         }
+    </script>  선생님꺼 복붙-->
+
+
+
+    <script>
+        const mainBtn = document.querySelectorAll('.menus>a');
+        const subBtn = document.querySelectorAll('.submenu');
+
+        // 초기상태 : 모두 접기 = height = 0px
+
+        for(let i = 0; i < subBtn.length; i++) {
+            subBtn[i].style.height = '0px'
+        }
+        // 헷갈리니까 하나 더 나눠주는 것 뿐
+
+        for(let i = 0; i < subBtn.length; i++) {
+            mainBtn[i].addEventListener('click',() =>{
+                const currentSub = subBtn[i];
+                const isOpen = currentSub.style.height !== '0px';
+                // currentSub : 현재 서브메뉴 / isOpen : 메뉴가 오픈되어서 높이가 0이 아닌 녀석들 / !== : ~이 아니다
+
+                // 모든 메뉴 닫기
+
+                for(let j =0; j<subBtn.length; j++){
+                    subBtn[j].style.height = '0px';
+                }
+                // 먼저 닫는 스크립트를 만들어두고 내가 클릭하는 것만 열면 최적화,설정도 간단해짐!
+
+                //현재 메뉴가 닫혀있었으면 열기
+                if(!isOpen) {
+                    currentSub.style.height = currentSub.scrollHeight + 'px';
+                    // scrollHeight : 0이 아니라도 원래 갖고 있는 값(고유값)을 반환해줌 > 그래서 clientheight로 하면 안먹힘~
+                }
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>
