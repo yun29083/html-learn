@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부모 자식 관계가 아니어도 자바스크립트는 제어 가능함</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 0;
+            background-color: royalblue;
+            transition: all 0.5s ease-in-out;
+        }
+        div.active {
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <button>
+        커져라
+    </button>
+
+    <div></div>
+
+    <script>
+        const btn = document.querySelector('button'),
+            blueBox = document.querySelector('div');
+        // 선언 많아질때는 , 넣고 엔터/탭 후 적고 ;로 막으면 이어 쓸 수 있음
+
+        btn.addEventListener('click',maxWidth);
+        // btn을 클릭 이벤트 발생했을 때 maxWidth라는 함수를 불러올거다 라는 뜻
+        // maxWidth는 width가 500px이 되는 함수
+
+        function maxWidth(){
+            blueBox.classList.toggle('active');
+            // classList 뜻은 classList를 어떻게 할 것이냐
+        }
+
+    </script>
+</body>
+</html>
