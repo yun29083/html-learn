@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 80px auto;
+            background-color: royalblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            transition: all 0.3s ease-in;
+        }
+
+        .box.active {
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div>
+
+    <script>
+        const options = {
+            // 아래서 옵션을 넣으면 그 함수 위에 옵션을 선언해두어야함!
+        }
+        const Observer = new IntersectionObserver(callback, obtions);
+        // (callback : 다시 받아야한다 , options를 선언한다. :MDN 웹에서 본 속성 옵션들을 선언하기 위해선 변수 이름 뒤에  붙여 쓰면 됨)
+        const boxes = document.querySelectorAll('.box');
+        boxes.forEach(box => {
+            // 변수.각각 분리해서(박스 안에 집어넣을것이다)
+            // console.log(box);
+            Observer.observe(box)
+            // 관찰자.관찰하다(무엇을? 박스들을)
+        });
+
+        function callback(){
+
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        /* css 시작 */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            width: 100%;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        nav>a {
+            display: block;
+            text-align: center;
+            padding: 18px 0;
+            flex: 1;
+        }
+
+        nav>a:hover {
+            background-color: lightskyblue;
+            color: #fff;
+        }
+
+        nav>a.active {
+            background-color: lightskyblue;
+            color: #fff;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#works">works</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <section id="home">home</section>
+    <section id="about">about</section>
+    <section id="works">works</section>
+    <section id="contact">contact</section>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav>a');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                console.log(entry);
+                if (entry.isIntersecting) {
+                    // 만약(엔트리.가 감지된다면)
+                    navLinks.forEach(link => {
+                        //모든 링크에서 active 제거
+                        link.classList.remove('active');
+                        // 스크립트는 항상 있는 상태에서 다 제거한 후 보여주는 눈속임
+
+                        //감지하고 있는 section의 id 찾기 : 그래야 스크롤 이동해서 보여진 페이지에 active를 넣을 수 있으니
+                        const id = entry.target.getAttribute('id');
+                        // 변수 id를 만든다 =entry에서 타겟 중.getAttribute는 감지된 애를 찾아라!('id')요소를
+
+                        // 해당 id와 같은 href를 가진 html의 nav>a에 active를 추가
+                        const activeLink = document.querySelector(`nav>a[href="#${id}"]`);
+                        // active 붙은 a는 하나기에 querySelectorAll에서 All 안 붙어도 됨 href로 들어가야하니까 (`nav>a[href="#${id}"]`); : 아이디를 추가하는 공식! 그냥 외워
+                        // 아이디 넣을거니까"#" 넣고 어떤 아이디냐 "#${}" 그리고 위에서 함수로 지정한 찾을 id를 넣음
+                        // 그냥 따옴표 안에 또 따옴표 못 들어가니 `` 넣고 안에 쌍따옴표
+
+                        if(activeLink) activeLink.classList.add('active');
+                        // 만약(엑티브링크)가 참이라면 저 코드들이 실행된다
+                        // 예전에는 if(!activeLink) ! : 이게 맞다는 표시
+                    });
+                }else{
+
+                }
+
+
+            });
+        },{threshold : 0.6}); //60%이상 보여야 현재 section으로 인식
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+    <!-- 만약 index01에서 만든 것과 02 두개의 observer를 둘 다 쓰고 싶다면 외부 js 써서 2개를 연결하면 편함!! -->
+    <!-- ex) navActive.js / sectionAni.js  -->
+    <!-- 근데 이렇게만 넣으면 변수 동일한 것들끼리 충돌나니 모듈화 시켜줘야함  -->
+    <!-- <script type="module" src="./js/navActive.js" defer></script> -->
+    <!-- 그래서 js는 하나에 한 종류의 움직임만 넣어서 여러개 첨부하면 됨. -->
+
+</body>
+
+</html>

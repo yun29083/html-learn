@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* 화면 중앙에 오게 하려는 설정일 뿐 */
+    }
+
+    .toggle_btn {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        border: 1px solid red;
+        position: relative;
+    }
+
+    .toggle_btn span {
+        width: 100%;
+        height: 10px;
+        background-color: #000;
+        border-radius: 100px;
+        display: block;
+        position: absolute;
+        transition: all 0.3s ease-in;
+    }
+
+    .toggle_btn span:nth-of-type(1) {
+        top: 0;
+    }
+
+    /* 코드에서는 ,쓰고 무조건 엔터로 내려와야함! */
+    .toggle_btn span:nth-of-type(2),
+    .toggle_btn span:nth-of-type(3) {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .toggle_btn span:nth-of-type(4) {
+        bottom: 0;
+    }
+
+    /* active상태일 때 주앙 span X모양 변환 */
+
+    .toggle_btn.active span:nth-of-type(1),
+    .toggle_btn.active span:nth-of-type(4) {
+        opacity: 0;
+    }
+
+    .toggle_btn.active span:nth-of-type(2) {
+        transform: rotate(45deg);
+    }
+
+    .toggle_btn.active span:nth-of-type(3) {
+        transform: rotate(-45deg);
+    }
+</style>
+
+<body>
+    <div class="toggle_btn">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+
+<script>
+    const toggleBtn = document.querySelector('.toggle_btn');
+
+    toggleBtn.addEventListener('click', () => {
+        toggleBtn.classList.toggle('active');
+    });
+</script>
+
+</html>

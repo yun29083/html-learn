@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .emty {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 80px auto;
+            background-color: royalblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 30px;
+
+            transition: all 0.5s;
+            /* transform: translateY(200px); */
+        }
+
+        /* .box.active {
+            opacity: 1;
+            transform: translateY(0);
+        } */
+
+        .from-bottom {
+            transform: translateY(100px);
+        }
+
+        .from-bottom.active {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .from-right {
+            transform: translateX(100px);
+        }
+
+        .from-right.active {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="emty">빈 박스</div>
+    <div class="box from-bottom">1</div>
+    <div class="box from-right">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div>
+
+    <script>
+        const options = {
+            // 아래서 옵션을 넣으면 그 함수 위에 옵션을 선언해두어야함!
+            // 아래  function callback(entries) if 작성하고 와서!
+            threshold: 0.6,
+            // 1은 100% 0.3은 30% 정도 보였을 때 나타나게 하라
+            // thresholds s붙이면 작동을 안하더라
+            rootMargin: "0px 0px -100px 0px",
+        };
+
+        const Observer = new IntersectionObserver(callback, options);
+        // (callback : 다시 받아야한다 , options를 선언한다. : MDN 웹에서 본 속성 옵션들을 선언하기 위해선 변수 이름 뒤에  붙여 쓰면 됨)
+        const boxes = document.querySelectorAll('.box');
+        boxes.forEach(box => {
+            // 변수.각각 분리해서(박스 안에 집어넣을것이다)
+            // console.log(box);
+            Observer.observe(box);
+            // 옵저버.관찰하다(박스)
+        });
+
+        function callback(entries) {
+            entries.forEach(entry => {
+                //각각 또 설정 , 그냥 외워둬.. 
+                // console.log(entry);
+
+                if (entry.isIntersecting) {
+                    // 만약(엔트리가.is = 이것이 Intersecting 눈으로 감지된다면)
+                    entry.target.classList.add('active');
+                    //     // entry.target : 관찰하는 대상
+                } else {
+                    entry.target.classList.remove('active');
+                }
+
+            });
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            width: 100%;
+            background-color: lightblue;
+
+        }
+
+        .main_menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .main_menu>li {
+            position: relative;
+            /* .main_menu>a에 잡아도 되지만 .sub_menu와 a가 형제 관계니까 부모인 li에 잡아주는게 좋음 >>안정성, 최적화, 보기도 좋음~*/
+        }
+
+        .main_menu>li>a {
+            color: #fff;
+            padding: 15px 20px;
+            display: block;
+            /* 블록처리해야 패딩이 들어가짐 */
+        }
+
+        .main_menu>li>a:hover {
+            background-color: lightcoral;
+        }
+
+        .sub_menu {
+            background-color: lightgoldenrodyellow;
+            width: 150px;
+            /* 공중에 오면 너비를 못 잡으니 잡고 시작 */
+            text-align: center;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+            transition: all 0.3s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="main_menu">
+            <li>
+                <a href="#">메뉴1</a>
+                <ul class="sub_menu">
+                    <li><a href="#">서브메뉴1-1</a></li>
+                    <li><a href="#">서브메뉴1-2</a></li>
+                    <li><a href="#">서브메뉴1-3</a></li>
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">메뉴2</a>
+                <ul class="sub_menu">
+                    <li><a href="#">서브메뉴2-1</a></li>
+                    <li><a href="#">서브메뉴2-2</a></li>
+                    <li><a href="#">서브메뉴2-3</a></li>
+                    <li><a href="#">서브메뉴2-4</a></li>
+                    <li><a href="#">서브메뉴2-5</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#">메뉴3</a>
+                <ul class="sub_menu">
+                    <li><a href="#">서브메뉴3-1</a></li>
+                    <li><a href="#">서브메뉴3-2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 자바스크립트 -->
+    <script>
+        const mainMenu = document.querySelectorAll('.main_menu > li');
+
+        mainMenu.forEach((item) => {
+            // 서브메뉴를. 각각 넣을 것이다((아이템에다가)=>그리고 무슨 짓을 할 것이다 {이러이러한})
+            // console.log(item);
+            // 변수로 만들어 담았고, foreach로 각각 나눴는데 그걸 담을 item이란 그릇을 만든 것 / 0,1,2 같은 순번까지 알아서 해줌 => 그냥 for문의 증가연산자 쓸 필요 없음!!
+
+            const subMenu = item.querySelector('.sub_menu');
+            // 서브메뉴 펼쳐진 상태에서 높이를 받아와야 그 높이값이 존재! / 만양 접어둔 상태에서 잡으면 영원히 0이니까~
+            // 높이를 잡았으니 스크립트로, 호버했을 때 원래 높이로 나타나지지만 애니메이션을 넣어서 0에서 원래높이로 펼쳐지는 것처럼 보이게
+            const subMenuHeight = subMenu.scrollHeight;
+
+            // console.log(subMenuHeight)
+
+            subMenu.style.height = '0px';
+
+            item.addEventListener('mouseenter', () => {
+                subMenu.style.height = subMenuHeight + 'px';
+                // 수치 +'문자';
+            });
+
+            // item.addEventListener('click', (e) => {
+            //     e.preventDefault
+            // 클릭했을 때 펼쳐지도록하려면 위처럼 추가하고 item이 li가 아닌 a가 되어야함 > 혹은 클릭해서 다른 페이지 안 넘어가도록 a를 아예 뺀 html을 짜는 것이 방법 
+            //     subMenu.style.height = subMenuHeight + 'px';
+            // });
+
+
+            item.addEventListener('mouseleave', () => {
+                subMenu.style.height = '0px';
+            })
+
+
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    body {
+        background-color: #eaeaea;
+    }
+
+    header {
+        height: 60px;
+        /* 메인 메뉴 높이 */
+        background: linear-gradient(to bottom, black 0px, #000 60px, #fff 61px, #fff 500px);
+        overflow: hidden;
+        transition: all 0.2s ease-in;
+    }
+
+    nav {
+        width: 800px;
+        margin: 0 auto;
+        border: 1px solid red;
+    }
+
+    /* 메인 메뉴 */
+
+    nav .main_menu {
+        display: flex;
+    }
+
+    nav .main_menu>li {
+        flex: 1;
+        text-align: center;
+    }
+
+    nav .main_menu>li>a {
+        color: #fff;
+    }
+
+    nav a {
+        display: block;
+        padding: 18px;
+    }
+
+    nav a:hover {
+        background-color: lightskyblue;
+    }
+
+    /* 서브 메뉴 */
+
+    .sub_menu {}
+</style>
+
+<body>
+    <header>
+        <nav>
+            <ul class="main_menu">
+                <li>
+                    <a href="#">Menu 1</a>
+                    <ul class="sub_menu">
+                        <li><a href="#">sub 1</a></li>
+                        <li><a href="#">sub 2</a></li>
+                        <li><a href="#">sub 3</a></li>
+                        <li><a href="#">sub 4</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Menu 2</a>
+                    <ul class="sub_menu">
+                        <li><a href="#">sub 1</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#">Menu 3</a>
+                    <ul class="sub_menu">
+                        <li><a href="#">sub 1</a></li>
+                        <li><a href="#">sub 2</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Menu 4</a>
+                    <ul class="sub_menu">
+                        <li><a href="#">sub 1</a></li>
+                        <li><a href="#">sub 2</a></li>
+                        <li><a href="#">sub 3</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#">Menu 5</a>
+                    <ul class="sub_menu">
+                        <li><a href="#">sub 1</a></li>
+                        <li><a href="#">sub 2</a></li>
+                        <li><a href="#">sub 3</a></li>
+                        <li><a href="#">sub 4</a></li>
+                        <li><a href="#">sub 5</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        const mainMenu = document.querySelector('.main_menu');
+        const allSubMenu = document.querySelectorAll('.sub_menu');
+        const header = document.querySelector('header')
+
+        const headerBaseHeight = 60;
+
+        // 최대 서브메뉴 높이 계산
+
+        function getMaxSubmenuHeight() {
+            let maxHeight = 0;
+            // 함수 안 변수는 콘스트 보단 렛 / 콘스트는 최상단에
+            allSubMenu.forEach(sub => {
+                // .나눈 애들을 (이 안에 넣겠다 {그것의 내용은 이렇다})
+                // // 담아도 되고 안해도 되는데 간단하게 줄이기위해 변수 설정~
+                const h = sub.scrollHeight;
+                // h는 서브의 실제 높이값 / 인데 서브메뉴 높이가 다 다름
+
+                if (h > maxHeight) {
+                    maxHeight = h;
+                    // console.log(maxHeight);
+
+                    // h=50
+                    // maxHeight=0
+                    // 조건 50>0 참
+                    // maxHeight = 50
+
+                    // h=20
+                    // maxHeight=50
+                    // 조건 20>50 거짓
+                    // maxHeight=50
+
+                    // h=80
+                    // 조건 80>50 참
+                    // maxHeight=80
+                }
+            });
+            return maxHeight;
+            // 로 돌아가서 가장 큰 값을 maxHeight에 넣음!
+
+        };
+        // 위는 함수,변수 설정
+
+        // getMaxSubmenuHeight();
+        // 위에 있는걸 실행하라!
+
+        //마우스를 올리면 전체 서브메뉴 슬라이드 다운
+
+        mainMenu.addEventListener('mouseover', () => {
+            const maxHeight = getMaxSubmenuHeight();
+            header.style.height = (headerBaseHeight + maxHeight) + 'px';
+        });
+
+        // 마우스 나가면 전체 서브메뉴 슬라이드 업
+
+        mainMenu.addEventListener('mouseleave', () => {
+            const maxHeight = getMaxSubmenuHeight();
+            header.style.height = headerBaseHeight + 'px';
+        });
+
+    </script>
+
+</body>
+
+</html>

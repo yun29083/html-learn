@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+
+        html,
+        body {
+            height: 100%;
+            /* footer에서 스냅이 적용되려면 부모에 높이가 있어야함 */
+            overflow: hidden;
+            /* 요렇게 하면 스크롤이 막힘 */
+
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar{
+            /* 호환성을 높여주는 녀석 / 그냥 scrollbar 써도 되지만 호환성 높이기위해 정확히 작성 */
+            display: none;
+        }
+
+        /* header 영역 */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%);
+            background-color: lightblue;
+        }
+
+        nav>a.active {
+            color: crimson;
+        }
+
+        /* 스크롤 스냅 영역 :메인이 있음에도 컨테이너 넣은 이유 */
+        .container {
+            height: 100vh;
+            /* height: 100%; 동일한 의미! 부모가 높이 정해져있으니 */
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            /* y축 스냅 : y축을 붙게 만들것이다 / 포지션과 비슷한 개념으로 부모와 자식에 지정을 해줘야함. position: relative; 같은 역할 */
+                  scroll-behavior: smooth;
+      /* 자연스러운 스크롤 */
+        }
+
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            scroll-snap-align: start;
+            /* 섹션 시작 부분에서 스냅 / position: absolute;와 같이 자식에 적용되는 공식 */
+        }
+
+        section h1 {
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.3s ease-in-out;
+            transition-delay: 0.2s;
+        }
+
+        section.show h1 {
+            opacity: 1;
+            transform: translateY(0);
+            /* 아래에서 원래자리로 쇽 나타나는 효과 */
+        }
+
+        /* footer 영역 */
+
+        footer {
+            width: 100%;
+            height: 300px;
+            background-color: #222;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            scroll-snap-align: start;
+            /* 부모가 없어도 포지션처럼 body에 기준이 잡힘. 높이가 300px뿐이라 최대한 붙으려 되는것 */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#works">works</a>
+            <a href="#contact">contact</a>
+            <a href="#mypage">mypage</a>
+        </nav>
+    </header>
+    <!-- 포지션 픽스 시킬것이라면 컨테이너 밖에, 스크롤로 사라질거라면 컨테이너 안에 -->
+
+    <div class="container">
+        <!-- 스크롤 스냅 만들게 아니라면 컨테이너는 굳이 필요없음 -->
+        <main>
+            <!-- 메인의css는 거의 건들지않음 (물론 쓸 때도 있음) -->
+            <section id="home"><h1>home</h1></section>
+            <section id="about"><h1>about</h1></section>
+            <section id="works"><h1>works</h1></section>
+            <section id="contact"><h1>contact</h1></section>
+            <section id="mypage"><h1>mypage</h1></section>
+        </main>
+        <footer>
+            footer
+        </footer>
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav>a');
+
+        const observer = new IntersectionObserver((entries)=> {
+            // 공식처럼 정해져있는 옵저버 명령어 (섹션이 여러개니까 entries 복수형태)
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    const id = entry.target.getAttribute('id');
+                    // 각각 타겟에 있는 요소를 가져온다 : 감지된 섹션의 아이디를 가져옴
+                    navLinks.forEach(link => {
+                        link.classList.remove('active')
+                        // 일단 가져와서 빼두기, 그 후 넣으면 됨
+                    });
+                    const activeLink = document.querySelector(`nav>a[href="#${id}"]`)
+                    // $는 선택자라는 뜻
+                    if(activeLink) activeLink.classList.add('active');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        },{threshold: 0.6});
+        // 60%이상 올라와지면!
+        // 이게 없다면 화면 아래 아주 작은 다음섹션 영역이 인식되어버림!
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        // 실행시켜야하는데 여러개 감지니까 foreach로 나눠서(섹션에 하나씩 넣는다 => {감지되면(섹션을)})
+    </script>
+</body>
+
+</html>

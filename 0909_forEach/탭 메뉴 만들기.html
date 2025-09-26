@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0; padding: 0;
+        }
+
+
+        /* css 시작 */
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tab{
+            width: 400px;
+
+        }
+
+        .tab_buttons {
+            display: flex;
+        }
+
+        .tab_button {
+            flex: 1;
+            /* 위에서 .tab_buttons display: flex;를 주었고 셋 다 flex의 비율을 1:1:1로 주었다는 뜻! */
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            
+        }
+
+        .tab_button.active{
+            font-weight: bold;
+            color: #0768EA;
+            border-bottom: none;
+        }
+
+        .tab_contents {
+
+        }
+
+        .tab_content {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;  
+            display: none;  
+        }
+
+        .tab_content.active {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_buttons">
+            <button class="tab_button active" data-tab="tab1">탭1</button>
+            <button class="tab_button" data-tab="tab2">탭2</button>
+            <button class="tab_button" data-tab="tab3">탭3</button>
+            <!-- data인데 - tab으로 이름을 정한 것! data는 못 바뀌지만 tab 위치 글씨는 원하는대로 변경 가능! -->
+        </div>
+        <div class="tab_contents">
+            <div class="tab_content active" id="tab1">탭1의 내용입니다.</div>
+            <div class="tab_content" id="tab2">탭2의 내용입니다.</div>
+            <div class="tab_content" id="tab3">탭3의 내용입니다.</div>
+            <!-- id와 data-type은 같은 말이라 생각하면 됨~ -->
+        </div>
+    </div>
+
+    <script>
+        const tabButtons = document.querySelectorAll('.tab_button');
+        const tabContents = document.querySelectorAll('.tab_content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click',(e)=> {
+                console.log(e);
+                // 탭1의 버튼이 e에 담겨진 콘텐츠1과 연결됨을 데이터로 보여준다
+                // f12누르고 탭1 버튼 눌러 뜨는 로고에서 target:button.tab_button > dataset DOMStringMap tab:"tab1"[[Prototype]]:DOMStringMap 연결됨을 확인가능
+
+                // 클릭을 했을 경우 변수
+                const target = button.dataset.tab
+                // 위에서 버튼 눌렀을 때 나오는 dataset에 탭을 넣겠다는 뜻
+                // 위에서 data-tab으로 내가 만들었으니 button.dataset.tab 에서 tab부분과 동일한 이름으로 통일해줘야함
+
+                //모든 탭과 콘텐츠에서 active 제거 : 항상 기본은 보여진 상태를 만들고 스크립트로 빼는게 먼저~
+                tabButtons.forEach(btn =>{
+                   btn.classList.remove('active'); 
+                });
+
+                tabContents.forEach(content =>{
+                    content.classList.remove('active');
+                });
+                // 탭2 누르면 다 빠져야함
+
+                // 클릭된 탭과 해당 콘텐츠에 active 추가 : 이제 다시 눌렀을 때 넣어진 명령어 만들 차례
+                button.classList.add('active');
+
+                // 이제 탭2의 내용을 불러올 차례
+                document.getElementById(target).classList.add('active');
+                // 아이디로 가져올 것인데 (함수 중 타겟:button tab1과 연결된 content의 아이디)
+                // 클릭할 때마다 아이디가 바뀌니까 아이디로 들고옴 >> 반은 외워놔... 안그럼 코드 너무 길어짐
+
+            });
+        });
+
+
+    </script>
+</body>
+</html>
